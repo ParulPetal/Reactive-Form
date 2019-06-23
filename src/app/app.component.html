@@ -1,8 +1,6 @@
 <h3>  Reactive Form with Validations   </h3>
  
  
- 
- 
 <!-- Form Status: {{ form.status }}  --><br/>
 
 
@@ -12,53 +10,50 @@
 <form [formGroup]="form"  (ngSubmit)="onSubmit()"  >
 
 <div class="form-group">
-                     <label>First Name</label>
-                     <input [class.is-invalid]="form.get('firstName').invalid && form.get('firstName').touched"  type="text" formControlName="firstName" class="form-control" required>
-                     <div *ngIf="form.get('firstName').invalid && form.get('firstName').touched" >
-                                <small>First name must be three characters long.</small>
-                                 </div>
-                                </div>
+  <label>First Name</label>
+   <input [class.is-invalid]="form.get('firstName').invalid && form.get('firstName').touched"  type="text" formControlName="firstName" class="form-control" required>
+     <div *ngIf="form.get('firstName').invalid && form.get('firstName').touched" >
+        <small>First name must be three characters long.</small>
+     </div>
+  </div>
 
 
 
 <div class="form-group">
-                     <label>Last Name</label>
-                     <input  [class.is-invalid]="form.get('lastName').invalid && form.get('lastName').touched" type="text" formControlName="lastName" class="form-control">
-                     <small class="text-danger" [class.d-none]="form.get('lastName').valid || form.get('lastName').untouched" > Surname is required</small>
-                 </div>
+     <label>Last Name</label>
+         <input  [class.is-invalid]="form.get('lastName').invalid && form.get('lastName').touched" type="text" formControlName="lastName" class="form-control">
+             <small class="text-danger" [class.d-none]="form.get('lastName').valid || form.get('lastName').untouched" > Surname is required</small>
+ </div>
 
 <div class="form-group">
-                     <label>Email</label>
-                     <input  [class.is-invalid]="form.get('email').invalid && form.get('email').touched" type="text" formControlName="email" class="form-control">
+    <label>Email</label>
+    <input  [class.is-invalid]="form.get('email').invalid && form.get('email').touched" type="text" formControlName="email" class="form-control">
 
-                    <div *ngIf="form.get('email').invalid && form.get('email').touched" >
-                     <small>Please specfiy email.</small>
-                      </div>
-                    </div> 
+      <div *ngIf="form.get('email').invalid && form.get('email').touched" >
+         <small>Please specfiy email.</small>
+          </div>
+            </div> 
                  
                      
 
 
 
 <div class="form-group">
-                     <label>Password</label>
-                     <input type="text" formControlName="password" class="form-control" >
-                     
-                 </div>
+  <label>Password</label>
+    <input type="text" formControlName="password" class="form-control" >
+     </div>
 
 
 
                  
 <div class="form-group">
-                     <label>Confirm Password</label>
-                    
-                    
-<input type="password" [class.is-invalid]="form.errors?.misMatch" formControlName="cnfpassword" class="form-control">
+   <label>Confirm Password</label>
+  <input type="password" [class.is-invalid]="form.errors?.misMatch" formControlName="cnfpassword" class="form-control">
       <small class="text-danger" *ngIf="form.errors?.misMatch">Passwords do not match</small>
                  </div>
 
 
-                   <button type="submit" [disabled]="!form.valid"  class="btn btn-primary"> Submit</button>
+<button type="submit" [disabled]="!form.valid"  class="btn btn-primary"> Submit</button>
                  
 
 </form>
